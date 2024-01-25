@@ -3,6 +3,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { draftMode } from "next/headers";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import ArticleTitle from "./article-title";
 
 export async function generateStaticParams() {
   const allArticles = await getAllArticles();
@@ -27,9 +28,14 @@ export default async function KnowledgeArticlePage({
       <section className="w-full">
         <div className="container space-y-12 px-4 md:px-6">
           <div className="space-y-4">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
+            <ArticleTitle article={article} />
+            {/* <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl"
+            {...ContentfulLivePreview.getProps({
+              entryId: article.sys.id,
+              fieldId: 'title',
+            })}>
               {article.title}
-            </h1>
+            </h1> */}
             <p className="max-w-[900px] text-zinc-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-zinc-400">
               {article.summary}
             </p>

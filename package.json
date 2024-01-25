@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentful/live-preview": "^2.15.2",
     "@contentful/rich-text-react-renderer": "^15.19.0",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/node": "20.11.6",
+    "@types/react": "18.2.48",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",

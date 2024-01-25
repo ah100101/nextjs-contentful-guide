@@ -1,8 +1,10 @@
 import { getArticle } from "@/lib/api";
 import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
+import { cookies } from 'next/headers'
 
 export async function GET(request) {
+  
   const { searchParams } = new URL(request.url);
   const secret = searchParams.get("secret");
   const slug = searchParams.get("slug");
@@ -20,7 +22,6 @@ export async function GET(request) {
   if (!article) {
     return new Response("Article not found", { status: 404 });
   }
-
   draftMode().enable();
   redirect(`/articles/${article.slug}`);
 }
